@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>発電所計画 研究授業ガイド</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: one phone-width column; the slide deck's navy + orange carried over, the lesson's 50 minutes drawn as one bar */
+:root{
+  --bg:#F3F6F9; --card:#FFFFFF; --ink:#14212F; --muted:#5A6878; --line:#D9E1EA;
+  --navy:#14365A; --navy-ink:#FFFFFF; --orange:#E8773F; --orange-soft:#FDF1E8; --blue-soft:#E3EDFC;
+  --display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1722; --card:#16212E; --ink:#E6EDF5; --muted:#9AA9BA; --line:#2A3A4C;
+  --navy:#2C5A8C; --navy-ink:#FFFFFF; --orange:#F08A55; --orange-soft:#3A2618; --blue-soft:#1C2E45; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1722; --card:#16212E; --ink:#E6EDF5; --muted:#9AA9BA; --line:#2A3A4C;
+  --navy:#2C5A8C; --navy-ink:#FFFFFF; --orange:#F08A55; --orange-soft:#3A2618; --blue-soft:#1C2E45; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.75;margin:0}
+.wrap{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
+header.top{background:var(--navy);color:var(--navy-ink);margin-inline:-16px;padding:22px 20px 26px}
+.eyebrow{font-size:12px;letter-spacing:.08em;opacity:.85}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(22px,6vw,30px);line-height:1.35;margin:6px 0 10px;text-wrap:balance}
+.q{border:2px solid var(--orange);border-radius:12px;padding:12px 14px;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.6;background:rgba(255,255,255,.06)}
+.meta{font-size:12.5px;opacity:.85;margin-top:10px}
+nav.jump{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav.jump a{flex:none;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;border:1px solid var(--line);background:var(--card);padding:6px 12px;border-radius:999px}
+:root[data-theme="dark"] nav.jump a{color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.jump a{color:var(--ink)}}
+section{margin-top:26px}
+h2{font-family:var(--display);font-weight:900;font-size:19px;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+h2 .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--navy-ink);font-size:14px;display:grid;place-items:center}
+.three{display:grid;gap:10px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0}
+.box b.k{display:block;font-family:var(--display);color:var(--orange);font-size:13px;letter-spacing:.04em}
+.bar{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:6px 0 4px;font-size:12px;font-weight:700}
+.bar span{display:grid;place-items:center;color:#fff;min-width:0;white-space:nowrap;overflow:hidden}
+.legend{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+ol.flow{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+ol.flow li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.ph{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ph .t{font-family:var(--display);font-weight:900;font-size:16px}
+.ph .m{font-size:12px;font-weight:700;color:var(--navy);background:var(--blue-soft);padding:1px 8px;border-radius:999px;font-variant-numeric:tabular-nums}
+:root[data-theme="dark"] .ph .m{color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ph .m{color:var(--ink)}}
+.flow p{margin:4px 0 0}
+.flow .tip{font-size:13px;color:var(--muted)}
+.steps{display:grid;gap:8px}
+.step{display:grid;grid-template-columns:68px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.step b{font-family:var(--display);color:var(--navy);font-size:15px}
+:root[data-theme="dark"] .step b{color:var(--orange)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .step b{color:var(--orange)}}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px;line-height:1.6}
+th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+thead th{background:var(--navy);color:var(--navy-ink);font-weight:700}
+td.k{font-weight:700;white-space:nowrap}
+td.p2{background:var(--orange-soft)}
+.judge{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:13.5px}
+.judge span{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.judge b{color:var(--orange)}
+.unit{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.unit li{display:grid;grid-template-columns:34px 1fr;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14px}
+.unit li.now{border:2px solid var(--orange)}
+.unit .d{font-family:var(--display);font-weight:900;color:var(--navy);text-align:center}
+:root[data-theme="dark"] .unit .d{color:var(--orange)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .unit .d{color:var(--orange)}}
+.unit small{color:var(--muted)}
+a.btn,button{font:inherit;font-weight:700;border-radius:10px;cursor:pointer}
+a.btn{display:inline-block;margin-top:10px;background:var(--navy);color:var(--navy-ink);text-decoration:none;padding:9px 14px;font-size:14px}
+ul.look{margin:0;padding-left:1.2em}
+ul.look li{margin:4px 0}
+/* ask: chat — log on top, composer stays under the latest answer */
+.ask{background:var(--card);border:2px solid var(--navy);border-radius:14px;padding:14px}
+.lead{margin:0 0 10px;font-size:14px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{background:var(--blue-soft);color:var(--ink);border:1px solid var(--line);padding:7px 11px;font-size:13px;font-weight:500;border-radius:999px}
+.log{display:grid;gap:10px}
+.msg{border-radius:12px;padding:10px 12px;white-space:pre-wrap;font-size:14px;min-width:0;overflow-wrap:anywhere}
+.msg.u{background:var(--navy);color:var(--navy-ink);justify-self:end;max-width:88%;border-bottom-right-radius:4px}
+.msg.a{background:var(--bg);border:1px solid var(--line);border-bottom-left-radius:4px}
+.follow{display:flex;gap:6px;flex-wrap:wrap;margin-top:-2px}
+.follow button{background:transparent;color:var(--ink);border:1px dashed var(--line);padding:5px 10px;font-size:12.5px;font-weight:500;border-radius:999px}
+.composer{position:sticky;bottom:env(safe-area-inset-bottom,0px);display:flex;gap:8px;align-items:flex-end;margin-top:12px;padding:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 -6px 16px -10px rgba(20,54,90,.35)}
+.composer textarea{flex:1;min-width:0;min-height:40px;max-height:140px;font:inherit;font-size:16px;line-height:1.5;border:none;border-radius:8px;padding:8px;background:var(--bg);color:var(--ink);resize:none}
+.composer button{flex:none;border:none;padding:10px 16px;font-size:15px}
+#send{background:var(--orange);color:#fff}
+#send:disabled{opacity:.5}
+#stop{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.tools{display:flex;justify-content:flex-end;margin-top:6px}
+#reset{background:transparent;border:none;color:var(--muted);font-size:12.5px;font-weight:500;text-decoration:underline;padding:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.note{font-size:12.5px;color:var(--muted);margin-top:8px}
+button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+@media (min-width:640px){.three{grid-template-columns:repeat(3,1fr)}}
+footer{margin-top:34px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">中学2年 社会（地理）研究授業｜第6時／全7時間</div>
+  <h1>日本の地域的特色と地域区分<br>発電所計画をつくる</h1>
+  <div class="q">日本に新しい発電所を建設するなら、どの地方に、どのような発電所を建設するか。</div>
+  <div class="meta">教科書：帝国書院 p.140〜164</div>
+</header>
+
+<nav class="jump" aria-label="ページ内の移動">
+  <a href="#point">30秒で</a><a href="#flow">50分の流れ</a><a href="#tool">思考ツール</a><a href="#eval">評価</a><a href="#unit">単元7時間</a>
+</nav>
+
+<section id="point">
+  <h2><span class="n">1</span>30秒でわかる本時</h2>
+  <div class="three">
+    <div class="box"><b class="k">ねらい</b>これまでの学習と資料を根拠に、3E+Sのどれを大事にするかを明らかにして、発電所の場所と発電方法、その弱点とおぎない方を組み立てる。</div>
+    <div class="box"><b class="k">しかけ</b>AIでつくったゲーム「エネルギー究極の二択」で価値の対立を体験。あとで「作ったのはAI」と明かし、AIで電気がふえる資料につなぐ。</div>
+    <div class="box"><b class="k">組み立てて書く</b>本時は思考ツール（三角ロジック）で考えを組み立てる。次時にそれを一つの文章にしてGoogleフォームで書く。</div>
+  </div>
+</section>
+
+<section id="flow">
+  <h2><span class="n">2</span>50分の流れ</h2>
+  <div class="bar" role="img" aria-label="導入12分、展開1が13分、展開2が5分、展開3が17分、まとめ3分">
+    <span style="flex:12;background:#14365A">導入</span><span style="flex:13;background:#2C5A8C">展開1</span><span style="flex:5;background:#6E8FB3">2</span><span style="flex:17;background:#E8773F">展開3</span><span style="flex:3;background:#9AA9BA"></span>
+  </div>
+  <div class="legend"><span>0</span><span>12</span><span>25</span><span>30</span><span>47</span><span>50分</span></div>
+  <ol class="flow">
+    <li><div class="ph"><span class="t">導入｜ゲーム</span><span class="m">12分</span></div>
+      <p>問いを確認し、班で「エネルギー究極の二択」（3問）。どちらを選んでも3E+Sのどれかを手放す。</p>
+      <p class="tip">話型「わたしは（　）を大事にしたいから、（　）にした」。意見が分かれたら少数派から話す。</p>
+      <a class="btn" href="game.html">ゲームを開く（スマホ可）</a></li>
+    <li><div class="ph"><span class="t">展開1｜AIと電気・発電の弱点</span><span class="m">13分</span></div>
+      <p>ゲームを作ったのはAIだと明かす。データセンターの資料から電力需要の増加を読み取る。持ち点10点を3E+Sに配分し、挙手でクラスの傾向を見る。火力・原子力・再エネの弱点を資料で確かめる。</p>
+      <p class="tip">原子力事故を扱うので、被災・避難の経験がある生徒や家庭に配慮する。</p></li>
+    <li><div class="ph"><span class="t">展開2｜考え方の例・見返す</span><span class="m">5分</span></div>
+      <p>新幹線の例で「主張・根拠・理由づけ」と「弱点→おぎない方→その根拠」を確認。第1時の評価表、ロイロの発電カード、第2〜5時の小レポートを見返す。</p></li>
+    <li><div class="ph"><span class="t">展開3｜思考ツール</span><span class="m">17分</span></div>
+      <p>ワークシート４で発電所計画を個人で組み立てる。班での相談はOK、書くのは自分の言葉。</p>
+      <p class="tip">最低ライン「★・根拠１つ・理由づけ・主張」。手が止まった生徒には、持ち点→第1時の評価表→教p.155⑤の順に声をかける。</p></li>
+    <li><div class="ph"><span class="t">まとめ</span><span class="m">3分</span></div>
+      <p>次時は、組み立てた考えを文章にしてフォームに書き、クラス全員の考えと国のエネルギー基本計画を比べる。</p></li>
+  </ol>
+</section>
+
+<section id="tool">
+  <h2><span class="n">3</span>思考ツール（ワークシート４）</h2>
+  <div class="steps">
+    <div class="step"><b>STEP1</b><div>白地図に★を１つつけ、場所の特色を書き込んで、場所を県・市町村まで決める。</div></div>
+    <div class="step"><b>STEP2</b><div>根拠（どの時間の学習か・3E+Sのどれか）→理由づけ→主張の順に組み立てる。根拠には出典（教p.〇 図〇）を書く。</div></div>
+    <div class="step"><b>STEP3</b><div>弱点→おぎない方→その根拠。</div></div>
+  </div>
+  <div class="box" style="margin-top:10px"><b class="k">生徒の記述例</b>香川県の瀬戸内海沿いに太陽光発電所を建設する。瀬戸内は１年を通して雨が少なく晴れが多い（教p.145）。環境を大事にしたい。夜やくもりの日は天然ガス火力と組み合わせておぎなう。</div>
+</section>
+
+<section id="eval">
+  <h2><span class="n">4</span>評価（ルーブリック・6点満点）</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>観点</th><th>2点</th><th>1点</th><th>0点</th></tr></thead>
+    <tbody>
+      <tr><td class="k">主張と立地</td><td class="p2">場所が県・市町村までくわしく、その場所の特色が発電に向いている理由と結び付いている。</td><td>主張はあるが、地方名だけ、または場所の特色と発電の結び付きが弱い。</td><td>場所か発電方法が書けていない。</td></tr>
+      <tr><td class="k">根拠と理由づけ</td><td class="p2">事実・データの根拠が出典つきで、ちがう時間の学習から集められ、理由づけ（3E+S）・主張と矛盾なくつながっている。</td><td>根拠（１つ以上）と理由づけがあり、主張とおおむねつながっている。</td><td>根拠か理由づけがない。または、大きな事実の誤りがある。</td></tr>
+      <tr><td class="k">弱点とおぎない方</td><td class="p2">具体的な弱点に対して、こたえるおぎない方があり、その根拠（事実・データ）もある。</td><td>弱点とおぎない方が書かれているが、具体的でない、または根拠がない。</td><td>弱点かおぎない方が書けていない。</td></tr>
+    </tbody></table></div>
+  <div class="judge"><span><b>A</b> 5〜6点</span><span><b>B</b> 2〜4点（上の2観点がともに1点以上）</span><span><b>C</b> Bに達しない</span></div>
+  <p class="note">評価資料：第7時にGoogleフォームで書く文章（単元を貫く課題への答え）。第6時のワークシート４もあわせて見る。細かい11項目の採点基準は別紙のスプレッドシート。</p>
+  <a class="btn" href="https://docs.google.com/spreadsheets/d/11ki5ERjhQ61jVEIGGa7dzpK5IXsXtlH7ZwaHSO0AmYo/edit?usp=sharing" target="_blank" rel="noopener">採点基準（教師用）を開く</a>
+</section>
+
+<section id="unit">
+  <h2><span class="n">5</span>単元7時間の中の本時</h2>
+  <ol class="unit">
+    <li><span class="d">①</span><div>資源・エネルギー <small>p.154〜155</small><br><small>9班で発電カード、3E+Sで評価、単元の課題を提示</small></div></li>
+    <li><span class="d">②</span><div>地形・気候 <small>p.140〜145</small><br><small>山地・火山・大陸棚・瀬戸内の少雨 → 発電の立地条件</small></div></li>
+    <li><span class="d">③</span><div>自然災害と防災 <small>p.146〜151</small><br><small>南海トラフの津波と発電所の分布、Safetyは前提</small></div></li>
+    <li><span class="d">④</span><div>人口・産業 <small>p.152〜153・158〜161</small><br><small>電気を使う場所、臨海部の工場と火力発電所</small></div></li>
+    <li><span class="d">⑤</span><div>交通・通信 <small>p.162〜163</small><br><small>送電ロスと海上輸送 → 火力が近郊・臨海部にある理由</small></div></li>
+    <li class="now"><span class="d">⑥</span><div><b>本時：発電所計画の作成</b> <small>p.164</small><br><small>ゲーム → 資料 → 思考ツールで自分の答えを組み立てる</small></div></li>
+    <li><span class="d">⑦</span><div>共有と検証<br><small>フォームで文章化 → NotebookLMでクラスの傾向 → 第7次エネルギー基本計画と比べる</small></div></li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="n">6</span>参観のときに見てほしいところ</h2>
+  <div class="box"><ul class="look">
+    <li>ゲームで、3E+Sの対立を自分の言葉（話型）で伝え合えているか。</li>
+    <li>思考ツールの根拠に、ちがう時間の学習と出典が使われているか。</li>
+    <li>手が止まった生徒が、班の相談や声かけで最低ラインまで進めているか。</li>
+  </ul></div>
+</section>
+
+
+
+<footer>この要約は学習指導案【研究授業版】をもとにしています。くわしくは指導案本文をご覧ください。</footer>
+</div>
+
+
+
+</body>
+</html>
